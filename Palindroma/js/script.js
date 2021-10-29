@@ -4,9 +4,7 @@
 
 const string = prompt("Inserisci una parola:");
 const array = isPalindroma(string);
-console.log(array);
-
-
+console.log("La parola inserita è palindroma?: ", array);
 
 //Funzione Palindroma
 
