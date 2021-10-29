@@ -5,10 +5,14 @@ Sommiamo i due numeri
 Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 Dichiariamo chi ha vinto. */
 
-const pariDispari = "dispari";
-const userNum ="2";
-const pcNum = "2";
+const pariDispari = prompt('Scegli "pari" o "dispari": ');
+console.log('Hai scelto: ', pariDispari);
+const userNum = parseInt(prompt('Scegli un numero da 1 a 5: '));
+console.log('Il tuo numero è: ', userNum);
+const pcNum = randomPariDispari();
+console.log('Il numero del pc è: ', pcNum);
 const somma = userNum + pcNum;
+console.log('la somma dei numeri è: ', somma);
 const test = isPari(somma);
 
 if((pariDispari === "pari" && test === true) || (pariDispari === "dispari" && test === false)){
@@ -20,7 +24,11 @@ else if((pariDispari === "pari" && test === false) || (pariDispari === "dispari"
 
 
 
-
+//funzione randomPariDispari
+function randomPariDispari(){
+  const num = (Math.floor(Math.random()*5) + 1);
+  return num;
+}
 
 //funzione isPari
 function isPari(num){
