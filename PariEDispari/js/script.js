@@ -5,24 +5,38 @@ Sommiamo i due numeri
 Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 Dichiariamo chi ha vinto. */
 
-const pariDispari = prompt('Scegli "pari" o "dispari": ');
+
+//Variabili
+let pariDispari = prompt('Scegli "pari" o "dispari": ');
+while(pariDispari !== "pari" && pariDispari !==  "dispari"){
+  pariDispari = prompt('Errore: devi scegliere: "pari" o "dispari" (in minuscolo): ');
+}
 console.log('Hai scelto: ', pariDispari);
-const userNum = parseInt(prompt('Scegli un numero da 1 a 5: '));
+
+let userNum = parseInt(prompt('Scegli un numero da 1 a 5: '));
+while(isNaN(userNum) || userNum > 5 || userNum < 1){
+  userNum = parseInt(prompt('Errore: devi scegliere un numero da 1 a 5: '));
+}
 console.log('Il tuo numero è: ', userNum);
+
 const pcNum = randomPariDispari();
 console.log('Il numero del pc è: ', pcNum);
+
 const somma = userNum + pcNum;
 console.log('la somma dei numeri è: ', somma);
+
+//Verifica Vincita
 const test = isPari(somma);
-
-if((pariDispari === "pari" && test === true) || (pariDispari === "dispari" && test === false)){
-  console.log("Hai Vinto!!!")
+switch(pariDispari){
+  case 'pari' : 
+    if(test === true){console.log("Hai Vinto!!!")}
+    else if(test === false){console.log("Hai Perso!!!")}
+    break;
+  case 'dispari' : 
+    if(test === false){console.log("Hai Vinto!!!")}
+    else if(test === true){console.log("Hai Perso!!!")}
+    break;
 }
-else if((pariDispari === "pari" && test === false) || (pariDispari === "dispari" && test === true)){
-  console.log("Hai Perso!!!")
-}
-
-
 
 //funzione randomPariDispari
 function randomPariDispari(){
